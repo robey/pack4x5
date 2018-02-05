@@ -55,6 +55,4 @@ I also "know" the result of the division will have no remainder. Any two consecu
 
 ## It works
 
-The code is pretty small: less than 100 lines if you don't include a test suite that is somewhat overkill. I also didn't fight with the rust compiler as much as I feared. It was mostly concerned that I mark the various `u16` type conversions very explicitly.
-
-I'm not sure this packing trick is particularly useful in the real world, but maybe someday you'll need it.
+The code is pretty small: less than 100 lines if you don't include a test suite that is somewhat overkill. The pack and unpack functions are now tiny, and probably easy to understand even if you don't know rust. Mission accomplished!
