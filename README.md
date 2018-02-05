@@ -51,3 +51,10 @@ To make it relatively efficient, I turned the multichoose function into a match 
 To divide by 3, I used a multiplication trick. On tiny devices, division is often implemented as a (slow) library call, but if you're dividing by a constant, you can usually find a good equivalent fixed-point constant. "One third" in binary is "0.5555..." repeating, so using a 16-bit fixed-point fraction, you can multiply by 0x5556 and shift right 16 bits. I can keep it down to 16 bits because I know the value of `n` will never be higher than 32. (Compilers are smart enough to do this trick without hand-holding, but it was fun to keep the intermediate results down to 16 bits.)
 
 I also "know" the result of the division will have no remainder. Any two consecutive integers will have one that is even (divisible by two), so the product will be even also. The same rule holds for 3 consecutive integers being divisible by three, and so on.
+
+
+## It works
+
+The code is pretty small: less than 100 lines if you don't include a test suite that is somewhat overkill. I also didn't fight with the rust compiler as much as I feared. It was mostly concerned that I mark the various `u16` type conversions very explicitly.
+
+I'm not sure this packing trick is particularly useful in the real world, but maybe someday you'll need it.
